@@ -1,0 +1,320 @@
+/* ======================================
+   LevelPage Styles
+   ====================================== */
+
+.level-wrapper {
+    min-height: 100vh;
+    background: #0a0a14;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.level-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.level-blob-1 {
+    width: 600px;
+    height: 600px;
+    background: #10b981;
+    top: -200px;
+    left: -200px;
+}
+
+.level-blob-2 {
+    width: 500px;
+    height: 500px;
+    background: #ef4444;
+    bottom: -150px;
+    right: -150px;
+}
+
+.level-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Header ── */
+.level-header {
+    text-align: center;
+    margin-bottom: 44px;
+}
+
+.level-header-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #475569;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 5px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+}
+
+.level-header-title {
+    font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+    font-weight: 800;
+    color: #f1f5f9;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.level-header-sub {
+    font-size: 0.98rem;
+    color: #475569;
+    line-height: 1.7;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* ── Cards ── */
+.level-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+.level-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.07);
+    border-radius: 22px;
+    padding: 28px 24px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    user-select: none;
+}
+
+.level-card:hover {
+    background: var(--lbg);
+    border-color: var(--lb);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px var(--lg);
+}
+
+.level-card.selected {
+    background: var(--lbg);
+    border-color: var(--lc);
+    box-shadow: 0 0 0 1px var(--lc), 0 20px 60px var(--lg);
+    transform: translateY(-6px);
+}
+
+/* Check badge */
+.lc-check {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    animation: popIn 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Top row */
+.lc-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.lc-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.lc-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+}
+
+.lc-label {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #f1f5f9;
+    margin-bottom: 3px;
+    letter-spacing: -0.3px;
+}
+
+.lc-subtitle {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--lc);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 12px;
+}
+
+.lc-desc {
+    font-size: 0.88rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* Features */
+.lc-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.lc-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: 0.84rem;
+    color: #94a3b8;
+    line-height: 1.5;
+}
+
+.lc-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+/* Error */
+.level-error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #fca5a5;
+    padding: 11px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Continue button */
+.level-continue-btn {
+    width: 100%;
+    max-width: 420px;
+    padding: 16px 32px;
+    border-radius: 14px;
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: #475569;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: not-allowed;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: inherit;
+    margin-bottom: 16px;
+}
+
+.level-continue-btn.ready {
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.level-continue-btn.ready:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.btn-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2.5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.level-note {
+    font-size: 12px;
+    color: #334155;
+    text-align: center;
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 760px) {
+    .level-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .level-header-title {
+        font-size: 1.8rem;
+    }
+
+    .level-header {
+        margin-bottom: 28px;
+    }
+}

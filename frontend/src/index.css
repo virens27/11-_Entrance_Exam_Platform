@@ -1,0 +1,584 @@
+/* ============================================
+   11+ Exam Prep — Global Design System
+   Kid-friendly, Duolingo-inspired
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* ── Brand Colors ── */
+    --purple: #7c3aed;
+    --purple-light: #a855f7;
+    --purple-pale: #ede9fe;
+    --purple-border: #c4b5fd;
+
+    --yellow: #f59e0b;
+    --yellow-light: #fde68a;
+    --yellow-pale: #fef3c7;
+
+    --green: #10b981;
+    --green-light: #34d399;
+    --green-pale: #d1fae5;
+    --green-border: #6ee7b7;
+
+    --blue: #0891b2;
+    --blue-pale: #e0f2fe;
+
+    --red: #ef4444;
+    --red-pale: #fee2e2;
+    --red-border: #fca5a5;
+
+    --orange: #ea580c;
+    --orange-pale: #fff7ed;
+
+    --pink: #ec4899;
+    --pink-pale: #fdf2f8;
+
+    /* ── Neutrals ── */
+    --bg: #f0f4ff;
+    --white: #ffffff;
+    --text: #1e1b4b;
+    --text-mid: #4b5563;
+    --text-muted: #9ca3af;
+    --border: #e5e7eb;
+
+    /* ── Shadows (3D button effect) ── */
+    --shadow-purple: 0 4px 0 #5b21b6;
+    --shadow-green: 0 4px 0 #059669;
+    --shadow-yellow: 0 4px 0 #d97706;
+    --shadow-red: 0 4px 0 #dc2626;
+    --shadow-blue: 0 4px 0 #0369a1;
+
+    /* ── Radii ── */
+    --r-sm: 8px;
+    --r-md: 12px;
+    --r-lg: 16px;
+    --r-xl: 20px;
+    --r-2xl: 24px;
+    --r-pill: 999px;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Nunito', 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+}
+
+#root {
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c4b5fd;
+    border-radius: 3px;
+}
+
+/* ── Utility classes ── */
+.page {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+}
+
+.page-wide {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 24px 20px 60px;
+}
+
+/* ── Cards ── */
+.card {
+    background: var(--white);
+    border-radius: var(--r-2xl);
+    border: 3px solid var(--border);
+    padding: 20px;
+}
+
+.card-purple {
+    background: var(--white);
+    border-radius: var(--r-2xl);
+    border: 3px solid var(--purple-border);
+}
+
+/* ── Buttons ── */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 24px;
+    border-radius: var(--r-lg);
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+    transition: all 0.15s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--purple);
+    color: white;
+    box-shadow: var(--shadow-purple);
+}
+
+.btn-primary:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #5b21b6;
+}
+
+.btn-green {
+    background: var(--green);
+    color: white;
+    box-shadow: var(--shadow-green);
+}
+
+.btn-green:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+.btn-green:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #059669;
+}
+
+.btn-yellow {
+    background: var(--yellow-light);
+    color: #78350f;
+    box-shadow: var(--shadow-yellow);
+}
+
+.btn-yellow:hover {
+    filter: brightness(1.02);
+    transform: translateY(-1px);
+}
+
+.btn-yellow:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #d97706;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--purple);
+    border: 3px solid var(--purple-border);
+    box-shadow: none;
+}
+
+.btn-outline:hover {
+    background: var(--purple-pale);
+}
+
+.btn-lg {
+    padding: 15px 32px;
+    font-size: 16px;
+    border-radius: var(--r-xl);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* ── Answer option buttons ── */
+.opt-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    border-radius: var(--r-xl);
+    border: 3px solid var(--border);
+    background: var(--white);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    transition: all 0.15s ease;
+    text-align: left;
+}
+
+.opt-btn:hover:not(:disabled) {
+    border-color: var(--purple-border);
+    background: var(--purple-pale);
+    transform: scale(1.01);
+}
+
+.opt-btn.correct {
+    border-color: var(--green);
+    background: var(--green-pale);
+    color: #065f46;
+}
+
+.opt-btn.wrong {
+    border-color: var(--red);
+    background: var(--red-pale);
+    color: #7f1d1d;
+}
+
+.opt-btn.dimmed {
+    opacity: 0.35;
+}
+
+.opt-letter {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 3px solid currentColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 900;
+    flex-shrink: 0;
+    transition: all 0.15s;
+}
+
+.opt-btn:hover:not(:disabled) .opt-letter {
+    background: var(--purple);
+    border-color: var(--purple);
+    color: white;
+}
+
+.opt-btn.correct .opt-letter {
+    background: var(--green);
+    border-color: var(--green);
+    color: white;
+}
+
+.opt-btn.wrong .opt-letter {
+    background: var(--red);
+    border-color: var(--red);
+    color: white;
+}
+
+/* ── Badge pills ── */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    border-radius: var(--r-pill);
+    font-size: 12px;
+    font-weight: 800;
+    border: 2px solid transparent;
+}
+
+.badge-purple {
+    background: var(--purple-pale);
+    color: var(--purple);
+    border-color: var(--purple-border);
+}
+
+.badge-green {
+    background: var(--green-pale);
+    color: #065f46;
+    border-color: var(--green-border);
+}
+
+.badge-yellow {
+    background: var(--yellow-pale);
+    color: #78350f;
+    border-color: var(--yellow-light);
+}
+
+.badge-red {
+    background: var(--red-pale);
+    color: #7f1d1d;
+    border-color: var(--red-border);
+}
+
+.badge-blue {
+    background: var(--blue-pale);
+    color: #075985;
+    border-color: #bae6fd;
+}
+
+/* ── Progress bar ── */
+.progress-wrap {
+    width: 100%;
+    height: 14px;
+    background: #e5e7eb;
+    border-radius: var(--r-pill);
+    overflow: hidden;
+    border: 2px solid var(--border);
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: var(--r-pill);
+    background: linear-gradient(90deg, var(--purple), var(--purple-light));
+    transition: width 0.5s ease;
+}
+
+/* ── Form inputs ── */
+.form-input {
+    width: 100%;
+    padding: 13px 16px 13px 44px;
+    border-radius: var(--r-lg);
+    border: 3px solid var(--border);
+    background: var(--white);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.form-input:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px var(--purple-pale);
+}
+
+.form-input::placeholder {
+    color: var(--text-muted);
+}
+
+/* ── Navbar ── */
+.navbar {
+    background: var(--white);
+    border-bottom: 3px solid var(--purple-pale);
+    padding: 0 24px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-logo {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--purple);
+    letter-spacing: -0.5px;
+}
+
+/* ── Stat chips ── */
+.stat-chip {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 14px;
+    border-radius: var(--r-pill);
+    font-size: 14px;
+    font-weight: 800;
+    border: 2px solid;
+}
+
+.chip-yellow {
+    background: var(--yellow-pale);
+    border-color: var(--yellow-light);
+    color: #78350f;
+}
+
+.chip-purple {
+    background: var(--purple-pale);
+    border-color: var(--purple-border);
+    color: var(--purple);
+}
+
+.chip-orange {
+    background: var(--orange-pale);
+    border-color: #fed7aa;
+    color: var(--orange);
+}
+
+.chip-green {
+    background: var(--green-pale);
+    border-color: var(--green-border);
+    color: #065f46;
+}
+
+/* ── Animations ── */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(-6deg);
+    }
+
+    75% {
+        transform: rotate(6deg);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+}
+
+@keyframes celebPop {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-12px);
+    }
+
+    15% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.fade-in {
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+.pop-in {
+    animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.bounce {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+.wiggle {
+    animation: wiggle 0.8s ease-in-out infinite;
+}
+
+/* ── Loading spinner ── */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--purple-pale);
+    border-top-color: var(--purple);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    margin: 40px auto;
+}
+
+/* ── Section label ── */
+.section-label {
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--purple);
+    margin-bottom: 10px;
+}
+
+/* ── Alert boxes ── */
+.alert-error {
+    background: var(--red-pale);
+    border: 2px solid var(--red-border);
+    color: #7f1d1d;
+    padding: 12px 16px;
+    border-radius: var(--r-lg);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.alert-success {
+    background: var(--green-pale);
+    border: 2px solid var(--green-border);
+    color: #065f46;
+    padding: 12px 16px;
+    border-radius: var(--r-lg);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.alert-info {
+    background: var(--purple-pale);
+    border: 2px solid var(--purple-border);
+    color: var(--purple);
+    padding: 12px 16px;
+    border-radius: var(--r-lg);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+}

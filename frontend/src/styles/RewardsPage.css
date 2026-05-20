@@ -1,0 +1,529 @@
+/* ======================================
+   RewardsPage Styles
+   ====================================== */
+
+.rw-wrapper {
+    min-height: 100vh;
+    background: #0a0a14;
+    padding: 72px 24px 60px;
+    font-family: inherit;
+    position: relative;
+}
+
+.rw-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    gap: 16px;
+    color: #475569;
+    font-size: 14px;
+}
+
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid rgba(255, 255, 255, 0.07);
+    border-top-color: #6366f1;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Back button */
+.rw-back {
+    position: fixed;
+    top: 20px;
+    left: 24px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 10;
+    font-family: inherit;
+}
+
+.rw-back:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f1f5f9;
+}
+
+.rw-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Header ── */
+.rw-header {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.rw-title {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 800;
+    color: #f1f5f9;
+    letter-spacing: -0.8px;
+    margin-bottom: 8px;
+}
+
+.rw-sub {
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+/* ── Top stats ── */
+.rw-top-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.rw-stat-card {
+    border-radius: 18px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid;
+    transition: transform 0.2s;
+}
+
+.rw-stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.rw-stat-card.gold {
+    background: rgba(245, 158, 11, 0.08);
+    border-color: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+}
+
+.rw-stat-card.cyan {
+    background: rgba(6, 182, 212, 0.08);
+    border-color: rgba(6, 182, 212, 0.2);
+    color: #06b6d4;
+}
+
+.rw-stat-card.orange {
+    background: rgba(249, 115, 22, 0.08);
+    border-color: rgba(249, 115, 22, 0.2);
+    color: #f97316;
+}
+
+.rw-stat-card.purple {
+    background: rgba(99, 102, 241, 0.08);
+    border-color: rgba(99, 102, 241, 0.2);
+    color: #818cf8;
+}
+
+.rwsc-icon {
+    display: flex;
+    align-items: center;
+    opacity: 0.85;
+}
+
+.rwsc-num {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #f1f5f9;
+    line-height: 1;
+}
+
+.rwsc-label {
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ── Level card ── */
+.rw-level-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.rwlc-left {
+    min-width: 200px;
+}
+
+.rwlc-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+}
+
+.rwlc-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #f1f5f9;
+    margin-bottom: 6px;
+}
+
+.rwlc-sub {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.rwlc-right {
+    flex: 1;
+    min-width: 260px;
+}
+
+.rwlc-steps {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.rwlc-step-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.rwlc-step {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.3s;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.rwlc-step.current {
+    color: white;
+    box-shadow: 0 0 14px currentColor;
+}
+
+.rwlc-step.done {
+    color: white;
+}
+
+.rwlc-step.locked {
+    color: #334155;
+}
+
+.rwlc-step-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #334155;
+    text-align: center;
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.rwlc-connector {
+    height: 2px;
+    width: 60px;
+    background: rgba(255, 255, 255, 0.08);
+    margin-bottom: 22px;
+    transition: background 0.4s;
+}
+
+.rwlc-connector.done {
+    background: #f59e0b;
+}
+
+.rwlc-bar-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.rwlc-bar {
+    flex: 1;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.rwlc-fill {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.8s ease;
+}
+
+.rwlc-pct {
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+    min-width: 36px;
+}
+
+/* ── Section ── */
+.rw-section {
+    margin-bottom: 28px;
+}
+
+.rw-section-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #f1f5f9;
+    letter-spacing: -0.3px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rw-badge-count {
+    font-size: 12px;
+    font-weight: 700;
+    background: rgba(99, 102, 241, 0.15);
+    color: #818cf8;
+    padding: 3px 10px;
+    border-radius: 999px;
+}
+
+/* ── Performance grid ── */
+.rw-perf-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+}
+
+.rw-perf-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 14px;
+    padding: 18px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+}
+
+.rw-perf-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-2px);
+}
+
+.rwpi-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #f1f5f9;
+    line-height: 1;
+}
+
+.rwpi-label {
+    font-size: 11px;
+    color: #475569;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+/* ── Badges ── */
+.rw-badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+}
+
+.rw-badge-card {
+    border-radius: 16px;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    transition: all 0.25s;
+    border: 1px solid;
+}
+
+.rw-badge-card.earned {
+    background: var(--bg);
+    border-color: var(--br);
+    cursor: default;
+}
+
+.rw-badge-card.earned:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.rw-badge-card.locked {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.06);
+    opacity: 0.5;
+}
+
+.rwbc-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.rw-badge-card.earned .rwbc-icon {
+    background: var(--bg);
+    color: var(--bc);
+}
+
+.rw-badge-card.locked .rwbc-icon {
+    background: rgba(255, 255, 255, 0.05);
+    color: #334155;
+}
+
+.rwbc-emoji {
+    font-size: 24px;
+}
+
+.rwbc-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #f1f5f9;
+}
+
+.rwbc-desc {
+    font-size: 11px;
+    color: #475569;
+    line-height: 1.5;
+}
+
+.rwbc-earned-tag {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--bc);
+    background: var(--bg);
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-top: 2px;
+}
+
+/* ── Coins guide ── */
+.rw-coins-guide {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 18px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+}
+
+.rwcg-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rwcg-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.rwcg-row:last-child {
+    border-bottom: none;
+}
+
+.rwcg-action {
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+.rwcg-coins {
+    font-size: 13px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .rw-top-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .rw-perf-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .rw-level-card {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .rw-wrapper {
+        padding: 72px 14px 40px;
+    }
+
+    .rw-top-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .rw-perf-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .rw-badges-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
